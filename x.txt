@@ -1,0 +1,5 @@
+main.pressure
+main.humidity
+
+wind.speed
+wind.deg

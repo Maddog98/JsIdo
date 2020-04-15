@@ -7,8 +7,10 @@ var temp = document.querySelector(".temp");
 var hi_low = document.querySelector(".hi_low");
 var weather = document.querySelector(".weather");
 var image = document.querySelector('.image'); 
+var imageTwo = document.querySelector('.imageTwo'); 
 var imgelo="img/";
 var imguto=".png";
+var Hum="Humidity";
 
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress", setQuery);
@@ -25,19 +27,30 @@ function getResults(query) {
     .then((weather) => {
       return weather.json();
     })
-    .then((data) => {
+   .then((data) => {
       var cityV = data["name"];
       city.innerHTML = cityV;
       var tempV = data["main"]["temp"];
       temp.innerHTML = tempV + "&deg;C";
       var tempMinV = data["main"]["temp_min"];
       var tempMaxV = data["main"]["temp_max"];
+
+      var pressureV = data["main"]["pressure"];
+      var humidityV = data["main"]["humidity"];
+      imageTwo.innerHTML= 
+    `<table>
+      <tr>
+        <td><img src= "${ imgelo +Hum+imguto }" /></td>
+        <td><DIV class="hi_low">${humidityV}<DIV></td>
+      </tr>
+    </table>`;
       hi_low.innerHTML = tempMaxV + "&deg;C" + " / " + tempMinV + "&deg;C";
       var weather0MainV = data["weather"]["0"]["main"];
       var weather0DescriptionV = data["weather"]["0"]["description"];
       var weather0IconV = data["weather"]["0"]["icon"];
       weather.innerHTML= weather0MainV + ',' + weather0DescriptionV ;
-        image.innerHTML= `<img src= "${ imgelo +weather0IconV+imguto }" />`;   
+        image.innerHTML= `<img src= "${ imgelo +weather0IconV+imguto }" />`;
+
     })
     .catch(error=> alert("Wrong city name!"))
    
