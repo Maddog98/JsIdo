@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +6,8 @@
 }
 body {
   font-family: "montserrat", sans-serif;
-  background-image: url("hatter.png");
-  background-size: auto;
+  background-image: url("../img/hatter.png");
+  background-size: cover;
   background-position: top center;
 }
 

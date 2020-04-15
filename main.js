@@ -37,8 +37,7 @@ function getResults(query) {
       var weather0DescriptionV = data["weather"]["0"]["description"];
       var weather0IconV = data["weather"]["0"]["icon"];
       weather.innerHTML= weather0MainV + ',' + weather0DescriptionV ;
-        image.innerHTML= `<img src= "${ imgelo +weather0IconV+imguto }" />`; 
-        console.log(image);   
+        image.innerHTML= `<img src= "${ imgelo +weather0IconV+imguto }" />`;   
     })
     .then(displayResults);
 }
