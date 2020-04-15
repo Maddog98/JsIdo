@@ -39,9 +39,13 @@ function getResults(query) {
       weather.innerHTML= weather0MainV + ',' + weather0DescriptionV ;
         image.innerHTML= `<img src= "${ imgelo +weather0IconV+imguto }" />`;   
     })
+    .catch(error=> alert("Wrong city name!"))
+   
+    
     .then(displayResults);
 }
 
 function displayResults(weather) {
   console.log(weather);
 }
+

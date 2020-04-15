@@ -22,8 +22,7 @@
       <main>
         <section class="location">
           <div class="city"></div>
-
-          <div class="date" id="datetime"></div>
+          <div id="MyClockDisplay" class="date">03:19:57 PM</div>
         </section>
         <div class="current">
           <div class="temp"></div>
@@ -33,11 +32,47 @@
         </div>
       </main>
     </div>
+
+<script type="text/javascript">
+
+			function showTime(){
+        var date = new Date();
+        var y = date.getFullYear();
+        var mo = date.getMonth()+1;
+        var d=date.getDate();
+				var h = date.getHours(); // 0 - 23
+				var m = date.getMinutes(); // 0 - 59
+				var s = date.getSeconds(); // 0 - 59
+				var session = "AM";
+				
+				if(h >= 12){
+					h = h - 12;
+					session = "PM";
+				}
+
+				if(h == 0){
+					h = 12;
+				}
+				h = (h < 10) ? "0" + h : h;
+				m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+        mo = (mo < 10) ? "0" + mo : mo;
+        d = (d < 10) ? "0" + d : d;
+
+				var time =y+"."+mo+"."+d+" "+ h + ":" + m + ":" + s + " " + session;
+				document.getElementById("MyClockDisplay").innerText = time;
+				document.getElementById("MyClockDisplay").textContent = time;
+
+				setTimeout(showTime, 1000);
+			}
+
+			showTime();
+
+		</script>
     <script src="main.js"></script>
-    <script>
-      var dt = new Date();
-      document.getElementById("datetime").innerHTML = dt.toLocaleString();
-    </script>
+   
+   
+   
   </body>
 </html>
 
